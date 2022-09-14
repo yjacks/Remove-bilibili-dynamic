@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 def remove_all(uid,cookies):
     driver = webdriver.Firefox()  # Driver
-    driver.get("https://space.bilibili.com/674013151/dynamic")
+    driver.get("https://space.bilibili.com/"+str(uid)+"/dynamic")
     # 固定等待
     time.sleep(10)
     ab = json.loads(cookies)
