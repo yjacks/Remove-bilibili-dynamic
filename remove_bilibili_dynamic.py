@@ -3,7 +3,7 @@ import time, sys,json
 from selenium.webdriver.common.by import By
 
 
-def remove_all(uid,number,cookies):
+def remove_all(uid,cookies):
     driver = webdriver.Firefox()  # Driver
     driver.get("https://space.bilibili.com/674013151/dynamic")
     # 固定等待
@@ -14,8 +14,7 @@ def remove_all(uid,number,cookies):
     driver.refresh()
     time.sleep(10)
     mmm=1
-    k=False
-    for i in range(1,901):
+    while True:
         try:
             f = driver.find_element(By.XPATH,"/html/body/div[2]/div[4]/div/div/div[1]/div/div[1]/div[%d]/div/div/div[2]/div[4]/div"%mmm)
             f.click()
@@ -25,8 +24,7 @@ def remove_all(uid,number,cookies):
             v.click()
             html = driver.execute_script("return document.documentElement.outerHTML")  # 返回页面
             if "你已经到达了世界的尽头" in html:  # 到了最下面
-                k=True
-                break
+                return True
             driver.refresh()
             time.sleep(5)
         except:
