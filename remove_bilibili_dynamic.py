@@ -42,7 +42,7 @@ def remove_all(uid,cookies):
         html = driver.execute_script("return document.documentElement.outerHTML")  # 返回页面
         if "你已经到达了世界的尽头" in html:  # 到了最下面
             return True
-        time.sleep(0.3)
+        time.sleep(0.1)
 
 
 
